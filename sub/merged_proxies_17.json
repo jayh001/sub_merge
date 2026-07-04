@@ -1,0 +1,661 @@
+{
+    "dns": {
+        "final": "localDns",
+        "rules": [
+            {
+                "disable_cache": true,
+                "outbound": "any",
+                "server": "defaultDns"
+            },
+            {
+                "clash_mode": "direct",
+                "server": "localDns"
+            },
+            {
+                "clash_mode": "global",
+                "server": "proxyDns"
+            },
+            {
+                "rule_set": "geosite-cn",
+                "server": "localDns"
+            },
+            {
+                "rule_set": "geosite-geolocation-!cn",
+                "server": "proxyDns"
+            }
+        ],
+        "servers": [
+            {
+                "address": "https://dns.google/dns-query",
+                "address_resolver": "defaultDns",
+                "address_strategy": "ipv4_only",
+                "detour": "🚀 节点选择",
+                "tag": "proxyDns"
+            },
+            {
+                "address": "223.5.5.5",
+                "address_resolver": "defaultDns",
+                "address_strategy": "ipv4_only",
+                "detour": "🟢 直连",
+                "tag": "localDns"
+            },
+            {
+                "address": "223.5.5.5",
+                "address_strategy": "ipv4_only",
+                "detour": "🟢 直连",
+                "tag": "defaultDns"
+            }
+        ],
+        "strategy": "ipv4_only"
+    },
+    "experimental": {
+        "cache_file": {
+            "enabled": true
+        },
+        "clash_api": {
+            "default_mode": "Rule",
+            "external_controller": "127.0.0.1:9090",
+            "external_ui": "ui",
+            "external_ui_download_detour": "🚀 节点选择",
+            "external_ui_download_url": "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
+        }
+    },
+    "inbounds": [
+        {
+            "address": "172.19.0.1/30",
+            "auto_route": true,
+            "mtu": 9000,
+            "type": "tun"
+        }
+    ],
+    "log": {
+        "disabled": false,
+        "level": "info",
+        "timestamp": true
+    },
+    "ntp": {
+        "detour": "direct",
+        "enabled": true,
+        "interval": "30m0s",
+        "server": "time.apple.com",
+        "server_port": 123
+    },
+    "outbounds": [
+        {
+            "server": "193.32.151.103",
+            "server_port": 8080,
+            "tag": "🇯🇵 JP-193.32.151.103-0544",
+            "transport": {
+                "headers": {
+                    "Host": [
+                        "download.windowsupdate.com"
+                    ]
+                },
+                "path": "/download",
+                "type": "ws"
+            },
+            "type": "vmess",
+            "security": "auto",
+            "uuid": "efb748ec-c921-42a1-ac9e-1d5485d6c447"
+        },
+        {
+            "password": "KixLvKzwjekG00rm",
+            "server": "172.99.190.87",
+            "server_port": 8080,
+            "tag": "🇬🇧 GB-172.99.190.87-66746920",
+            "type": "shadowsocks",
+            "method": "aes-256-gcm",
+            "network": "tcp"
+        },
+        {
+            "password": "g5MeD6Ft3CWlJId",
+            "server": "38.75.136.21",
+            "server_port": 5003,
+            "tag": "🇺🇸 US-38.75.136.21-0254477",
+            "type": "shadowsocks",
+            "method": "aes-256-gcm",
+            "network": "tcp"
+        },
+        {
+            "server": "xgcta.dx002.top",
+            "server_port": 19832,
+            "tag": "🇯🇵 日本 2 Nico Abema - 西瓜皮是真的皮",
+            "type": "vmess",
+            "security": "auto",
+            "uuid": "075c16e6-67cb-3599-aa5a-025b478db156"
+        },
+        {
+            "password": "e4FCWrgpkji3QY",
+            "server": "38.143.66.99",
+            "server_port": 9101,
+            "tag": "🇺🇸 US-38.143.66.99-69826920",
+            "type": "shadowsocks",
+            "method": "aes-256-gcm",
+            "network": "tcp"
+        },
+        {
+            "password": "wfLC2y7rzZyCmuyt",
+            "server": "217.30.10.70",
+            "server_port": 9093,
+            "tag": "🇵🇱 PL-217.30.10.70-0202 | 0.0MB",
+            "type": "shadowsocks",
+            "method": "aes-256-cfb",
+            "network": "tcp"
+        },
+        {
+            "server": "upload.ir",
+            "server_port": 80,
+            "tag": "RELAY-172.67.132.209-12096920",
+            "transport": {
+                "headers": {
+                    "Host": [
+                        "upload.ir"
+                    ]
+                },
+                "path": "/vmess",
+                "type": "ws"
+            },
+            "type": "vmess",
+            "security": "auto",
+            "uuid": "06c2b568-b7df-4e80-9031-c83569397db4"
+        },
+        {
+            "server": "47.76.89.175",
+            "server_port": 22336,
+            "tag": "🇭🇰 HK-47.76.89.175-8285",
+            "transport": {
+                "path": "/",
+                "type": "ws"
+            },
+            "type": "vmess",
+            "security": "auto",
+            "uuid": "41275f5b-a181-4a5c-bada-ee869d5ae8a4"
+        },
+        {
+            "server": "mdlzz.vbdf.lol",
+            "server_port": 8000,
+            "tag": "🇷🇺 RU 94 → tg@nicevpn123",
+            "transport": {
+                "headers": {
+                    "Host": [
+                        "mdlzz.vbdf.lol"
+                    ]
+                },
+                "path": "/?ed=512",
+                "type": "ws"
+            },
+            "type": "vmess",
+            "security": "auto",
+            "uuid": "94e070a5-fc29-49bf-a1c3-11f3ef2df33d"
+        },
+        {
+            "password": "telegram-id-privatevpns",
+            "server": "52.48.207.242",
+            "server_port": 22222,
+            "tag": "🇮🇪 爱尔兰 都柏林Amazon数据中心",
+            "tls": {
+                "enabled": true,
+                "server_name": "trojan.burgerip.co.uk",
+                "insecure": true
+            },
+            "type": "trojan"
+        },
+        {
+            "password": "q9870219",
+            "server": "181.214.99.54",
+            "server_port": 2035,
+            "tag": "🇩🇪 DE-181.214.99.54-47356920",
+            "tls": {
+                "enabled": true,
+                "server_name": "ht.lljllj.buzz",
+                "insecure": true
+            },
+            "type": "trojan"
+        },
+        {
+            "server": "168.235.82.103",
+            "server_port": 16123,
+            "tag": "🇺🇸 US 205 → tg@nicevpn123",
+            "type": "vmess",
+            "security": "auto",
+            "uuid": "fa09f016-0460-4bcf-d209-197b7f3d270e"
+        },
+        {
+            "server": "141.101.114.150",
+            "server_port": 443,
+            "tag": "RELAY-141.101.114.150-1386",
+            "transport": {
+                "headers": {
+                    "Host": [
+                        "clash6.ssr-free.xyz"
+                    ]
+                },
+                "path": "/dongtaiwang.com",
+                "type": "ws"
+            },
+            "type": "vmess",
+            "security": "auto",
+            "uuid": "5f64fa65-7b14-49c5-954d-aa15c6bfcacd"
+        },
+        {
+            "password": "RexnBgU7EV5ADxG",
+            "server": "38.75.136.135",
+            "server_port": 7002,
+            "tag": "🇺🇸 US-38.75.136.135-72416920",
+            "type": "shadowsocks",
+            "method": "aes-256-gcm",
+            "network": "tcp"
+        },
+        {
+            "password": "71409d3e488548e8bb076d229778f008",
+            "server": "104.17.147.77",
+            "server_port": 443,
+            "tag": "RELAY-104.17.147.77-1220",
+            "tls": {
+                "enabled": true,
+                "server_name": "bangladeshipatri.com",
+                "insecure": true
+            },
+            "transport": {
+                "headers": {
+                    "Host": [
+                        "bangladeshipatri.com"
+                    ]
+                },
+                "path": "6b777a91",
+                "type": "ws"
+            },
+            "type": "trojan"
+        },
+        {
+            "server": "154.92.9.98",
+            "server_port": 80,
+            "tag": "RELAY-154.92.9.98-9699",
+            "transport": {
+                "path": "/blue",
+                "type": "ws"
+            },
+            "type": "vmess",
+            "security": "auto",
+            "uuid": "dd41b5cb-b72e-4a8c-c75a-3ecc928d6eb3"
+        },
+        {
+            "server": "cloud.dragonrzm.sbs",
+            "server_port": 8080,
+            "tag": "🇺🇸 美国_121320077",
+            "transport": {
+                "headers": {
+                    "Host": [
+                        "cloud.dragonrzm.sbs"
+                    ]
+                },
+                "path": "/",
+                "type": "ws"
+            },
+            "type": "vmess",
+            "security": "auto",
+            "uuid": "ce0d5151-7734-4189-b6ae-eb58e9af5603"
+        },
+        {
+            "server": "104.29.64.5",
+            "server_port": 443,
+            "tag": "🇨🇳 TW-104.29.64.5-16356920",
+            "transport": {
+                "headers": {
+                    "Host": [
+                        "us3.guolicheng.cyou"
+                    ]
+                },
+                "path": "/suti/us3?ed=2048",
+                "type": "ws"
+            },
+            "type": "vmess",
+            "security": "auto",
+            "uuid": "a1b16d10-4f43-4dd9-8c4f-52065b2b0910"
+        },
+        {
+            "password": "kDWvXYZoTBcGkC4",
+            "server": "38.114.114.69",
+            "server_port": 8881,
+            "tag": "🇺🇸 US-38.114.114.69-72936920",
+            "type": "shadowsocks",
+            "method": "aes-256-gcm",
+            "network": "tcp"
+        },
+        {
+            "server": "v3.ssrsub.com",
+            "server_port": 443,
+            "tag": "🇺🇸 _美国_YouTube:VV科技_7",
+            "tls": {
+                "enabled": true,
+                "server_name": "v3.ssrsub.com",
+                "insecure": true
+            },
+            "transport": {
+                "headers": {
+                    "Host": [
+                        "v3.ssrsub.com"
+                    ]
+                },
+                "path": "/ssrsub",
+                "type": "ws"
+            },
+            "type": "vmess",
+            "security": "auto",
+            "uuid": "739e53db-d41c-4bad-a61d-6cd5a173f85b"
+        },
+        {
+            "password": "oZIoA69Q8yhcQV8ka3Pa3A",
+            "server": "82.38.31.35",
+            "server_port": 443,
+            "tag": "🇬🇧 GB-82.38.31.35-0423",
+            "type": "shadowsocks",
+            "method": "chacha20-ietf-poly1305",
+            "network": "tcp"
+        },
+        {
+            "password": "bk66mF7qWn",
+            "server": "51.79.146.159",
+            "server_port": 2053,
+            "tag": "🇨🇦 CA 11 → tg@nicevpn123",
+            "tls": {
+                "enabled": true,
+                "server_name": "cloud.sooshiant.link",
+                "insecure": true
+            },
+            "type": "trojan"
+        },
+        {
+            "default": "🗽 自动",
+            "outbounds": [
+                "🗽 自动",
+                "🌏 亚洲",
+                "🌎 美洲",
+                "🌍 欧洲",
+                "🟢 直连"
+            ],
+            "tag": "🚀 节点选择",
+            "type": "selector"
+        },
+        {
+            "default": "🗽 自动",
+            "interrupt_exist_connections": true,
+            "outbounds": [
+                "🗽 自动",
+                "🌎 美洲",
+                "🌍 欧洲"
+            ],
+            "tag": "🤖 AI",
+            "type": "selector"
+        },
+        {
+            "default": "🟢 直连",
+            "interrupt_exist_connections": true,
+            "outbounds": [
+                "🟢 直连",
+                "🚀 节点选择"
+            ],
+            "tag": "🍎 苹果",
+            "type": "selector"
+        },
+        {
+            "default": "🚀 节点选择",
+            "outbounds": [
+                "🟢 直连",
+                "🚀 节点选择"
+            ],
+            "tag": "🐟 漏网之鱼",
+            "type": "selector"
+        },
+        {
+            "interrupt_exist_connections": true,
+            "outbounds": [
+                "🇯🇵 JP-193.32.151.103-0544",
+                "🇬🇧 GB-172.99.190.87-66746920",
+                "🇺🇸 US-38.75.136.21-0254477",
+                "🇯🇵 日本 2 Nico Abema - 西瓜皮是真的皮",
+                "🇺🇸 US-38.143.66.99-69826920",
+                "🇵🇱 PL-217.30.10.70-0202 | 0.0MB",
+                "RELAY-172.67.132.209-12096920",
+                "🇭🇰 HK-47.76.89.175-8285",
+                "🇷🇺 RU 94 → tg@nicevpn123",
+                "🇩🇪 DE-181.214.99.54-47356920",
+                "🇺🇸 US 205 → tg@nicevpn123",
+                "RELAY-141.101.114.150-1386",
+                "🇺🇸 US-38.75.136.135-72416920",
+                "RELAY-104.17.147.77-1220",
+                "RELAY-154.92.9.98-9699",
+                "🇺🇸 美国_121320077",
+                "🇺🇸 US-38.114.114.69-72936920",
+                "🇺🇸 _美国_YouTube:VV科技_7",
+                "🇬🇧 GB-82.38.31.35-0423",
+                "🇨🇦 CA 11 → tg@nicevpn123"
+            ],
+            "tag": "🗽 自动",
+            "type": "urltest"
+        },
+        {
+            "interrupt_exist_connections": true,
+            "outbounds": [
+                "🇯🇵 JP-193.32.151.103-0544",
+                "🇯🇵 日本 2 Nico Abema - 西瓜皮是真的皮",
+                "🇭🇰 HK-47.76.89.175-8285"
+            ],
+            "tag": "🌏 亚洲",
+            "type": "urltest"
+        },
+        {
+            "interrupt_exist_connections": true,
+            "outbounds": [
+                "🇺🇸 US-38.75.136.21-0254477",
+                "🇺🇸 US-38.143.66.99-69826920",
+                "🇺🇸 US 205 → tg@nicevpn123",
+                "🇺🇸 US-38.75.136.135-72416920",
+                "🇺🇸 美国_121320077",
+                "🇺🇸 US-38.114.114.69-72936920",
+                "🇺🇸 _美国_YouTube:VV科技_7",
+                "🇨🇦 CA 11 → tg@nicevpn123"
+            ],
+            "tag": "🌎 美洲",
+            "type": "urltest"
+        },
+        {
+            "interrupt_exist_connections": true,
+            "interval": "5m",
+            "outbounds": [
+                "🇬🇧 GB-172.99.190.87-66746920",
+                "🇷🇺 RU 94 → tg@nicevpn123",
+                "🇩🇪 DE-181.214.99.54-47356920",
+                "🇬🇧 GB-82.38.31.35-0423"
+            ],
+            "tag": "🌍 欧洲",
+            "type": "urltest"
+        },
+        {
+            "tag": "🟢 直连",
+            "type": "direct"
+        }
+    ],
+    "route": {
+        "auto_detect_interface": true,
+        "final": "🐟 漏网之鱼",
+        "rule_set": [
+            {
+                "download_detour": "🚀 节点选择",
+                "format": "binary",
+                "tag": "geosite-geolocation-!cn",
+                "type": "remote",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-geolocation-!cn.srs"
+            },
+            {
+                "download_detour": "🚀 节点选择",
+                "format": "binary",
+                "tag": "geosite-cn",
+                "type": "remote",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-cn.srs"
+            },
+            {
+                "download_detour": "🚀 节点选择",
+                "format": "binary",
+                "tag": "geosite-google",
+                "type": "remote",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-google.srs"
+            },
+            {
+                "download_detour": "🚀 节点选择",
+                "format": "binary",
+                "tag": "geosite-apple",
+                "type": "remote",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-apple.srs"
+            },
+            {
+                "download_detour": "🚀 节点选择",
+                "format": "binary",
+                "tag": "geosite-adblockplus",
+                "type": "remote",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-adblockplus.srs"
+            },
+            {
+                "download_detour": "🚀 节点选择",
+                "format": "binary",
+                "tag": "geosite-adguard",
+                "type": "remote",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-adguard.srs"
+            },
+            {
+                "download_detour": "🚀 节点选择",
+                "format": "binary",
+                "tag": "YouTube",
+                "type": "remote",
+                "url": "https://raw.githubusercontent.com/Toperlock/sing-box-geosite/main/rule/YouTube.srs"
+            },
+            {
+                "download_detour": "🚀 节点选择",
+                "format": "binary",
+                "tag": "OpenAI",
+                "type": "remote",
+                "url": "https://raw.githubusercontent.com/Toperlock/sing-box-geosite/main/rule/OpenAI.srs"
+            },
+            {
+                "download_detour": "🚀 节点选择",
+                "format": "source",
+                "tag": "TikTok",
+                "type": "remote",
+                "url": "https://raw.githubusercontent.com/Toperlock/sing-box-geosite/main/rule/TikTok.json"
+            },
+            {
+                "download_detour": "🚀 节点选择",
+                "format": "binary",
+                "tag": "Telegram",
+                "type": "remote",
+                "url": "https://raw.githubusercontent.com/Toperlock/sing-box-geosite/main/rule/Telegram.srs"
+            },
+            {
+                "download_detour": "🚀 节点选择",
+                "format": "binary",
+                "tag": "Twitter",
+                "type": "remote",
+                "url": "https://raw.githubusercontent.com/Toperlock/sing-box-geosite/main/rule/Twitter.srs"
+            },
+            {
+                "download_detour": "🚀 节点选择",
+                "format": "binary",
+                "tag": "Netflix",
+                "type": "remote",
+                "url": "https://raw.githubusercontent.com/Toperlock/sing-box-geosite/main/rule/Netflix.srs"
+            },
+            {
+                "download_detour": "🚀 节点选择",
+                "format": "binary",
+                "tag": "GFW",
+                "type": "remote",
+                "url": "https://raw.githubusercontent.com/Toperlock/sing-box-geosite/main/rule/gfw.srs"
+            },
+            {
+                "download_detour": "🚀 节点选择",
+                "format": "binary",
+                "tag": "ai",
+                "type": "remote",
+                "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/ai.srs"
+            },
+            {
+                "download_detour": "🚀 节点选择",
+                "format": "binary",
+                "tag": "ads",
+                "type": "remote",
+                "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/ads.srs"
+            }
+        ],
+        "rules": [
+            {
+                "action": "sniff"
+            },
+            {
+                "action": "hijack-dns",
+                "protocol": "dns"
+            },
+            {
+                "clash_mode": "direct",
+                "outbound": "🟢 直连"
+            },
+            {
+                "clash_mode": "global",
+                "outbound": "🚀 节点选择"
+            },
+            {
+                "ip_is_private": true,
+                "outbound": "🟢 直连"
+            },
+            {
+                "outbound": "🍎 苹果",
+                "rule_set": "geosite-apple"
+            },
+            {
+                "outbound": "🤖 AI",
+                "rule_set": [
+                    "OpenAI",
+                    "ai"
+                ]
+            },
+            {
+                "action": "reject",
+                "protocol": "quic"
+            },
+            {
+                "action": "reject",
+                "rule_set": [
+                    "geosite-adblockplus",
+                    "geosite-adguard",
+                    "ads"
+                ]
+            },
+            {
+                "outbound": "🚀 节点选择",
+                "rule_set": [
+                    "GFW",
+                    "TikTok",
+                    "Telegram",
+                    "Netflix"
+                ]
+            },
+            {
+                "outbound": "🟢 直连",
+                "rule_set": "geosite-cn"
+            },
+            {
+                "mode": "and",
+                "outbound": "🚀 节点选择",
+                "rules": [
+                    {
+                        "rule_set": "geosite-geolocation-!cn"
+                    },
+                    {
+                        "invert": true,
+                        "rule_set": "geosite-cn"
+                    }
+                ],
+                "type": "logical"
+            }
+        ]
+    }
+}
